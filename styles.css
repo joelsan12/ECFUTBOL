@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #4CAF50; /* Fondo del header */
+    background: linear-gradient(90deg, #FFD700 0%, #0000FF 50%, #FF0000 100%); /* Degradado de amarillo a azul a rojo */
     padding: 10px;
     display: flex;
     flex-direction: column;

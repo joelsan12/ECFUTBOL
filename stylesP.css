@@ -1,0 +1,19 @@
+.menu {
+    list-style-type: none; /* Quitar los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    display: inline; /* Mostrar los elementos <li> en línea */
+    margin-right: 20px; /* Espacio entre los elementos */
+}
+
+.menu li a {
+    text-decoration: none; /* Quitar el subrayado de los enlaces */
+    color: #000; /* Color del texto del enlace */
+}
+
+.menu li a:hover {
+    color: #007BFF; /* Cambiar el color al pasar el ratón */
+}
