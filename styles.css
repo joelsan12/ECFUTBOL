@@ -1,5 +1,37 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Fondo suave */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50; /* Fondo del header */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Espacio entre el logo/título y el menú */
+}
+
+.logo {
+    height: 80px;  /* Tamaño más grande del logo */
+    width: auto;   /* Mantener proporciones */
+    margin-right: 15px;
+}
+
+h1 {
+    color: #ffffff; /* Título en blanco */
+    font-size: 48px; /* Tamaño del título más grande */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Espaciado entre letras */
 }
 
 .menu {
@@ -8,12 +40,20 @@ body {
 }
 
 .menu-btn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ffffff;
+    color: #4CAF50;
     padding: 10px 20px;
-    border: none;
+    border: 2px solid #ffffff;
+    border-radius: 5px; /* Bordes redondeados */
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.menu-btn:hover {
+    background-color: #3e8e41; /* Fondo verde oscuro al pasar el ratón */
+    color: #ffffff;
 }
 
 .menu-content {
@@ -23,6 +63,8 @@ body {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .menu-content a {
@@ -30,6 +72,7 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    transition: background-color 0.3s;
 }
 
 .menu-content a:hover {
@@ -38,8 +81,4 @@ body {
 
 .menu:hover .menu-content {
     display: block;
-}
-
-.menu:hover .menu-btn {
-    background-color: #3e8e41;
 }
