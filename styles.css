@@ -1,3 +1,4 @@
+/* Estilos Generales */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4; /* Fondo suave */
@@ -34,6 +35,7 @@ h1 {
     letter-spacing: 3px; /* Espaciado entre letras */
 }
 
+/* Estilos del Menú */
 .menu {
     position: relative;
     display: inline-block;
@@ -79,6 +81,7 @@ h1 {
     background-color: #f1f1f1;
 }
 
-.menu:hover .menu-content {
+/* Mostrar el menú cuando el botón es clicado */
+.menu-btn.active + .menu-content {
     display: block;
 }

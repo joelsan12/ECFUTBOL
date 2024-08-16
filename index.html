@@ -15,11 +15,51 @@
         <div class="menu">
             <button class="menu-btn">Menú</button>
             <div class="menu-content">
-                <a href="#opcion1">PARTIDOS</a>
-                <a href="#opcion2">MÁS SOBRE FUTBOL</a>
-                <a href="#opcion3">CANALES</a>
+                <a href="partidos">PARTIDOS</a>
+                <a href="moreFootball">MÁS SOBRE FUTBOL</a>
+                <a href="canales">CANALES</a>
             </div>
         </div>
     </header>
+    <div id="content">
+        <!-- El contenido de las páginas se cargará aquí -->
+    </div>
+    <script>
+        function loadContent(page) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', page + '.html', true);
+            xhr.onload = function() {
+                if (this.status === 200) {
+                    document.getElementById('content').innerHTML = this.responseText;
+                } else {
+                    document.getElementById('content').innerHTML = '<p>Contenido no disponible.</p>';
+                }
+            };
+            xhr.onerror = function() {
+                document.getElementById('content').innerHTML = '<p>Error al cargar el contenido.</p>';
+            };
+            xhr.send();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            menuBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const menuContent = document.querySelector('.menu-content');
+                menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Manejar los clics en los enlaces del menú
+            document.querySelectorAll('.menu-content a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    loadContent(this.getAttribute('href'));
+                });
+            });
+
+            // Cargar contenido inicial si se desea
+            loadContent('partidos'); // Asegúrate de que este archivo existe
+        });
+    </script>
 </body>
 </html>
