@@ -9,7 +9,9 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="/logosEC/EC.jpg" alt="Logo" class="logo">
+            <a href="#" id="logo-link">
+                <img src="/logosEC/EC.jpg" alt="Logo" class="logo">
+            </a>
             <h1>EC-FUTBOL</h1>
         </div>
         <div class="menu">
@@ -24,6 +26,9 @@
     <div id="content">
         <!-- El contenido de las páginas se cargará aquí -->
     </div>
+
+    <h2 id="main-title">NOTICIAS</h2>
+
     <script>
         function loadContent(page) {
             const xhr = new XMLHttpRequest();
@@ -31,6 +36,7 @@
             xhr.onload = function() {
                 if (this.status === 200) {
                     document.getElementById('content').innerHTML = this.responseText;
+                    document.getElementById('main-title').style.display = 'none'; // Ocultar el título principal
                 } else {
                     document.getElementById('content').innerHTML = '<p>Contenido no disponible.</p>';
                 }
@@ -39,6 +45,11 @@
                 document.getElementById('content').innerHTML = '<p>Error al cargar el contenido.</p>';
             };
             xhr.send();
+        }
+
+        function loadHomePage() {
+            document.getElementById('content').innerHTML = '';
+            document.getElementById('main-title').style.display = 'block'; // Mostrar el título principal
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -54,11 +65,15 @@
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
                     loadContent(this.getAttribute('href'));
+                    document.querySelector('.menu-content').style.display = 'none'; // Ocultar el menú después de hacer clic
                 });
             });
 
-            // Cargar contenido inicial si se desea
-            loadContent('partidos'); // Asegúrate de que este archivo existe
+            // Manejar clic en el logo para volver a la página principal
+            document.getElementById('logo-link').addEventListener('click', function(event) {
+                event.preventDefault();
+                loadHomePage();
+            });
         });
     </script>
 </body>
